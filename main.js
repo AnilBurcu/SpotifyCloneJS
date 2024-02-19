@@ -33,3 +33,14 @@ document.addEventListener('submit', async (e) => {
     // şarkıları ekrana bas
     ui.renderCards(api.songs)
 })
+// cartların playBtn'ine tıklanma olayını izleme
+ui.list.addEventListener('click', (e) => {
+    if (e.target.id === 'play-btn') {
+
+        // tıklanılan karttaki şarkının bilgilerini al
+        const song = e.target.closest(".card").dataset // closest: en yakın '.card' olan elementi al, veya parent kullanılabilir.
+
+        // şarkıyı oynatma kısmını ekrana bas
+        ui.renderPlayingInfo(song)
+    }
+})

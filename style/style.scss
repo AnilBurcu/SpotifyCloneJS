@@ -272,3 +272,53 @@ main .songs {
     transform: rotate(0);
   }
 }
+
+// Play area
+.play-area {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  background: linear-gradient(240deg, #fa8bff 0%, #2bd2ff, #2bff88);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 40px;
+
+  audio {
+    right: 50px;
+    padding: 20px 10px;
+  }
+
+  @media (max-width: 756px) {
+    font-size: 13px;
+    padding: 10px;
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.animate {
+  animation: turn 8s linear infinite;
+}
+
+// animasyon oluşturma
+
+@keyframes turn {
+  // animasyon başladığında sahip olacağı stiller
+  from {
+    transform: rotate(0);
+  }
+  // animasyon bittiğinde sahip olacağı stiller
+  to {
+    transform: rotate(360deg);
+  }
+}

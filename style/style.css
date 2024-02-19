@@ -245,4 +245,48 @@ main .songs {
   100% {
     transform: rotate(0);
   }
+}
+.play-area {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  background: linear-gradient(240deg, #fa8bff 0%, #2bd2ff, #2bff88);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 40px;
+}
+.play-area audio {
+  right: 50px;
+  padding: 20px 10px;
+}
+@media (max-width: 756px) {
+  .play-area {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+.play-area > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.play-area > div img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.animate {
+  animation: turn 8s linear infinite;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

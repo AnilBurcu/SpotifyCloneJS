@@ -5,6 +5,7 @@ export default class UI {
         this.list = document.querySelector('#list')
         this.form = document.querySelector('#search-form')
         this.title = document.querySelector('#title')
+        this.playArea = document.querySelector('.play-area')
     }
     // Liste alanına yüklenme gifi basar
     renderLoader() {
@@ -38,8 +39,11 @@ export default class UI {
 
             <h4>${songs.title}</h4>
             <p>${songs.subtitle}</p>`
-
-            // 4) kartı html'e gönder
+            // 4) daha sonra erişebilmek için  data verileri ekle
+            div.dataset.title = songs.title
+            div.dataset.photo = songs.images.coverarthq
+            div.dataset.url = songs.hub?.actions[1].uri // link gelmezse ? koyduk
+            // 5) kartı html'e gönder
             this.list.appendChild(div)
         });
     }
@@ -47,5 +51,23 @@ export default class UI {
     // Başlığı günceller
     changeTitle(text) {
         this.title.innerText = text
+    }
+    // Müzik oynatma kısmını ekrana bas
+    renderPlayingInfo(song) {
+        this.playArea.innerHTML = `
+        <div class="play-area">
+      <div>
+        <img
+          class="animate"
+          src="${song.photo}"
+          alt=""
+        />
+        <div>
+          <p>Şu an oynatılıyor</p>
+          <h3>${song.title}</h3>
+        </div>
+      </div>
+      <audio controls autoplay src="${song.url}"></audio>
+        `
     }
 }
