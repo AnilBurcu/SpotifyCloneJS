@@ -3,6 +3,8 @@
 export default class UI {
     constructor() {
         this.list = document.querySelector('#list')
+        this.form = document.querySelector('#search-form')
+        this.title = document.querySelector('#title')
     }
     // Liste alanına yüklenme gifi basar
     renderLoader() {
@@ -13,13 +15,12 @@ export default class UI {
         </div>`;
 
     }
-
     // Ekrana kartları bas
     renderCards(songs) {
         // Loader ekrandan kaldır
         this.list.innerHTML = ''
         //dizideki her bir eleman için aşağıdaki fınk. çalıştır
-        songs.forEach(() => {
+        songs.forEach((songs) => {
             // 1) elementi oluştur
             const div = document.createElement('div')
             // 2) class ekleme
@@ -28,18 +29,23 @@ export default class UI {
             div.innerHTML = `
             <figure>
               <img
-                src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/36/19/66/36196640-1561-dc5e-c6bc-1e5f4befa583/093624856771.jpg/400x400cc.jpg"
+                src="${songs.images.coverarthq}"
               />
               <div id="play">
                 <i id="play-btn" class="bi bi-play-fill"></i>
               </div>
             </figure>
 
-            <h4>Teddy Swims</h4>
-            <p>Lose Control</p>
-            `
+            <h4>${songs.title}</h4>
+            <p>${songs.subtitle}</p>`
+
             // 4) kartı html'e gönder
             this.list.appendChild(div)
         });
+    }
+
+    // Başlığı günceller
+    changeTitle(text) {
+        this.title.innerText = text
     }
 }

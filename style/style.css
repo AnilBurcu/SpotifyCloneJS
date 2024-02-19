@@ -130,7 +130,27 @@ main .songs {
 }
 
 .songs #list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  height: 80vh;
+  overflow: auto;
   padding: 20px;
+  justify-content: space-between;
+}
+@media (max-width: 600px) {
+  .songs #list {
+    justify-content: center;
+    gap: 10px;
+  }
+}
+.songs #list::-webkit-scrollbar {
+  background: black;
+  width: 8px;
+}
+.songs #list::-webkit-scrollbar-thumb {
+  background: #0e9c3f;
+  border-radius: 4px;
 }
 .songs #list .card {
   width: 200px;

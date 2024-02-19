@@ -146,8 +146,28 @@ main .songs {
 }
 
 .songs #list {
+  display: flex; // kaç tane sütun sığıyorsa ona göre yapması için flex kullandık, özellikle istediğimiz satır sayısı varsa grid kullanılabilir
+  flex-wrap: wrap; // yan yana getirme
+  gap: 30px;
+  height: 80vh;
+  overflow: auto; // scroll gelmesi için
   padding: 20px;
+  justify-content: space-between;
 
+  @media (max-width: 600px) {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    background: black;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    //thumb tuttuğumuz scrollbar yeri
+    background: #0e9c3f;
+    border-radius: 4px;
+  }
   .card {
     width: 200px;
     padding: 15px;
