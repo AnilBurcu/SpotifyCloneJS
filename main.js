@@ -44,3 +44,19 @@ ui.list.addEventListener('click', (e) => {
         ui.renderPlayingInfo(song)
     }
 })
+
+//localden mode verisini al
+const mode = localStorage.getItem('mode')
+document.body.className = mode === 'true' ? 'dark' : 'light'
+ui.checkbox.checked = mode === 'true'
+// checkboxin degerinin degisimini izle
+ui.checkbox.addEventListener('change', (e) => {
+    //false acik mod
+    //true koyu mod
+    const isDark = e.target.checked
+
+    // kullanicinin sectigi degeri kaybetmemek icin localde tut
+    localStorage.setItem('mode', isDark)
+
+    document.body.className = isDark ? 'dark' : 'light'
+})
